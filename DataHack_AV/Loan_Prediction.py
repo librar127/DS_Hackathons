@@ -46,7 +46,7 @@ def prepare_data(original_data):
     
     return imputed_features
 
-file_name = "E:\\Python\\AV_Datahack\\Datasets\\LoadPrediction\\DH_LoanPrediction_Train.csv"
+file_name = "DH_LoanPrediction_Train.csv"
 data = pd.read_csv(file_name)
 
 #print data.columns.values
@@ -100,7 +100,7 @@ scores = cross_val_score(clf, X, y, cv=10)
 print "Accuracy RF## min: {0:.2f}, mean: {1:.2f}, max: {2:.2f}".format(scores.min(), scores.mean(), scores.max())
 
 print "\n******************* Load Prediction Testing *******************"
-test_data = pd.read_csv("E:\\Python\\AV_Datahack\\Datasets\\LoadPrediction\\DH_LoanPrediction_Test.csv")
+test_data = pd.read_csv("DH_LoanPrediction_Test.csv")
 loan_ids = test_data['Loan_ID'].tolist()
 #loan_ids.insert(0, "Loan_ID")
 
@@ -132,7 +132,7 @@ output_df = pd.DataFrame({
         "Loan_ID": loan_ids,
         "Loan_Status": loan_status
 })
-output_df.to_csv('E:\\Python\\AV_Datahack\\Datasets\\LoadPrediction\\DH_LoanPrediction_Test_Op.csv', index=False)   
+output_df.to_csv('DH_LoanPrediction_Test_Op.csv', index=False)   
   
 
 print "\n******************** Total Processing Time ********************"
