@@ -9,7 +9,7 @@ import numpy as np
 from sklearn.cross_validation import train_test_split
 from sklearn.ensemble import GradientBoostingRegressor
 
-df = pd.read_csv("E:\\Python\\AV_Datahack\\Datasets\\BigMart\\BigMart_Train.csv")
+df = pd.read_csv("BigMart_Train.csv")
 #print df.apply(lambda x: sum(x.isnull()), axis =0)
 
 def prepare_data(df):
@@ -63,7 +63,7 @@ model.fit(X_train, y_train)
 print model.score(X, y) 
 print "Residual sum of squares: %.2f" % np.mean((model.predict(X_test) - y_test) ** 2)
 
-test_data = pd.read_csv("E:\\Python\\AV_Datahack\\Datasets\\BigMart\\BigMart_Test.csv")
+test_data = pd.read_csv("BigMart_Test.csv")
 XX = prepare_data(test_data[headers])
 
 output_df = pd.DataFrame({
@@ -71,4 +71,4 @@ output_df = pd.DataFrame({
         "Outlet_Identifier": test_data['Outlet_Identifier'],
         "Item_Outlet_Sales":model.predict(XX)
 })
-output_df.to_csv('E:\\Python\\AV_Datahack\\Datasets\\BigMart\\BigMart_Test_Op.csv', index=False)   
+output_df.to_csv('BigMart_Test_Op.csv', index=False)   
